@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Local settings
+ */
+
+/**
+ * Database configuration
+ */
+/*
+$databases = array (
+  'default' => 
+  array (
+    'default' => 
+    array (
+      'database' => 'pagedarty',
+      'username' => 'root',
+      'password' => '',
+      'host' => '127.0.0.1',
+      'port' => '',
+      'driver' => 'mysql',
+      'prefix' => '',
+    ),
+  ),
+);
+*/
+
+// $conf['darty_header_protocol'] = 'http://';
+// $conf['darty_header_htaccess'] = 'darty_rec:recette_darty';
+// $conf['darty_header_url'] = 'www.darty.com'; // recette.darty.com POUR RECETTE
+
+
+/**
+ * Proxy configuration.
+ */
+// $conf['darty_sso_ip']   = '';
+// $conf['proxy']          = TRUE;
+// $conf['proxy_server']   = '';
+// $conf['proxy_port']     = '';
+// $conf['proxy_username'] = '';
+// $conf['proxy_password'] = '';
+// $conf['proxy_user_agent'] = '';
+// $conf['proxy_exceptions'] = array();

@@ -1,0 +1,104 @@
+<?php
+
+/**
+ * Charge les templates à partir du module plutôt que depuis le thème du site
+ */
+function darty_pageoffre_theme($existing, $type, $theme, $path) {
+  $theme = array();
+  $theme['node__page_offre'] = array(
+    'render element' => 'content',
+    'base hook' => 'node',
+    'template' => 'node--page-offre',
+    'path' => drupal_get_path('module', 'darty_pageoffre') . '/templates',
+  );
+  $theme['page__page_offre'] = array(
+    'variables' => array(),
+    'template' => 'page--page-offre',
+    'path' => drupal_get_path('module', 'darty_pageoffre') . "/templates"
+  );
+  $theme['node__bloc_offre'] = array(
+    'render element' => 'content',
+    'base hook' => 'node',
+    'template' => 'node--bloc-offre',
+    'path' => drupal_get_path('module', 'darty_pageoffre') . '/templates',
+  );
+  $theme['node__bloc_video'] = array(
+    'render element' => 'content',
+    'base hook' => 'node',
+    'template' => 'node--bloc-video',
+    'path' => drupal_get_path('module', 'darty_pageoffre') . '/templates',
+  );
+  return $theme;
+}
+
+/**
+ * Prepare les informations à afficher sur le template du node des pages_offres
+ */
+function darty_pageoffre_preprocess_node(&$vars) {
+  global $base_path;
+
+  include_once 'class/PageOffre.inc';
+  include_once 'class/BlocOffre.inc';
+  include_once 'class/LinkOffre.inc';
+  
+  $type = $vars['type'];
+
+  if ($type == "page_offre") {
+    // css propre aux pages offre_page
+    drupal_add_css(drupal_get_path('module', 'darty_pageoffre') . '/css/pageoffre.css', 'file');
+    
+    $pageoffre = $vars['node'];
+    $objPage = new Pageoffre($pageoffre);
+    $objPage->initialise();
+    $vars['pageOffre'] = $objPage;
+    
+    drupal_add_css($objPage->prepareCss(), array('type' => 'inline', 'scope' => 'header'));  
+    $data = array(
+      '#tag' => 'meta',
+      '#attributes' => array(
+         'name' => 'description',
+         'content' => $objPage->getMetaDesc(),
+      ),
+      );
+      drupal_add_html_head($data, 'page_offre_desc');
+  }
+  if ($type == "bloc_offre") {
+    
+    $blocOffre = $vars['node'];
+    $objBloc = new BlocOffre($blocOffre);
+    
+    if ($vars['elements']['#view_mode'] == 'full') {
+      $url_dest = $objBloc->getParentUrl();
+      drupal_goto($url_dest);
+    }
+      
+    $objBloc->initialise();
+    $vars['blocOffre'] = $objBloc;
+  }
+}
+//suppression des champs sticky et promote sur tous les types de contenu
+function darty_pageoffre_form_alter(&$form, &$form_state, $form_id){
+  if (isset($form['options']['promote']))
+    $form['options']['promote']['#access'] = 0;
+  if (isset($form['options']['sticky']))
+  $form['options']['sticky']['#access'] = 0;
+}
+
+// Suppression de la fonctionnalité de redirect dans l'update des blocs video et image dans IEF
+function darty_pageoffre_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
+  if ($entity_form['#entity']->type == 'bloc_video' || $entity_form['#entity']->type == 'bloc_offre') {
+    $entity_form['redirect']['#access'] = 0;
+  }
+}
+function file_create_url_relative($uri){
+  global $base_path;
+  return $base_path.variable_get('file_public_path', conf_path() . '/files') . '/' . file_uri_target($uri);
+}
+
+/**
+* Implements theme_preprocess_page().
+*/
+function darty_pageoffre_preprocess_page(&$vars) {
+  drupal_add_http_header('Expires', gmdate('D, d M Y H:i:s T', time() + 900));
+  drupal_add_http_header('Cache-Control', 'max-age=900');
+}

@@ -1,0 +1,12 @@
+.buildpath
+.idea
+.project
+.idea
+sites.php
+privates/
+nbproject/
+.DS_Store
+sites/default/settings.local.php
+*.sublime-*
+vendor/*
+sites/pagedarty/files/

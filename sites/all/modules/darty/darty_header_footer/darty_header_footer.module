@@ -1,0 +1,63 @@
+<?php
+
+/**
+ * @file
+ * Code for the Darty header footer feature.
+ */
+
+/**
+ * Implementation of hook_page_alter()
+ *
+ */
+function darty_header_footer_page_alter(&$page) {
+  global $conf;
+  //Add header, footer, css and js from Darty Json services
+
+  if ((!path_is_admin(current_path()))) {
+    $cache = cache_get('json_darty_header_footer');
+    if ($cache && $cache->expire > time()) {
+      $data_encode = $cache->data;
+    } else {
+      if (isset($conf['darty_header_htaccess'])) {
+        $url = $conf['darty_header_protocol'] . $conf['darty_header_htaccess'] . '@' . $conf['darty_header_url'] . '/nav/extra/header_json?no_seo_footer';
+      } else {
+        $url = $conf['darty_header_protocol'] . $conf['darty_header_url'] . '/nav/extra/header_json?no_seo_footer';
+      }
+      
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL, $url);
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+      // Proxy
+      if (variable_get('proxy', FALSE)) {
+        curl_setopt($ch, CURLOPT_PROXYTYPE, 'HTTP');
+        curl_setopt($ch, CURLOPT_PROXY, variable_get('proxy_server', ''));
+        curl_setopt($ch, CURLOPT_PROXYPORT, variable_get('proxy_port', ''));
+        curl_setopt($ch, CURLOPT_PROXYUSERPWD, variable_get('proxy_username', '') . ':' . variable_get('proxy_password', ''));
+      }
+
+      $data_encode = curl_exec($ch);
+      cache_set('json_darty_header_footer', $data_encode, 'cache', time() + 3600);
+    }
+    $data = json_decode($data_encode);
+    
+    $page['header'][] = array(
+      '#markup' => isset($data->header) ? $data->header : '',
+    );
+    $page['footer'][] = array(
+      '#markup' => isset($data->footer) ? $data->footer : '',
+    );
+
+    if (isset($data->css)){
+      foreach ($data->css as $css) {
+        drupal_add_css($css, 'external');
+      }
+    }
+    if (isset($data->js)){
+      foreach ($data->js as $js) {
+        drupal_add_js($js, array('type' => 'external', 'scope' => 'footer'));
+      }
+    }
+  }
+}

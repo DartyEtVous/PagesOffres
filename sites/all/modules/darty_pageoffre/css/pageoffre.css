@@ -1,0 +1,352 @@
+.clear{
+    clear: both;
+}
+#content.offre{
+    padding: 0;
+}
+#offre-wrapper{
+    background-color: white;
+    width: 1000px;
+    display: inline-block;
+    height: 100%;
+    min-height: 550px;
+    font-family: 'arial';
+}
+#offre-wrapper *{
+    margin: 0;
+    padding: 0;
+}
+#offre-wrapper #banniere{
+    margin: 5px auto;
+    width: 990px;
+    height: 230px;
+    overflow: hidden;
+}
+#offre-wrapper #banniere{
+    width: 990px;
+    height: 230px;
+}
+#offre-wrapper #introduction{
+    margin:auto 10px;
+}
+#offre-wrapper #blocs-offre{
+    margin: 35px 0 0 30px;
+}
+#offre-wrapper #blocs-offre .contextual-links-wrapper a{
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+}
+#offre-wrapper .bloc-offre{
+    width: 450px;
+    height: 100px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #e1e1e1;
+    -moz-box-shadow:0 0 10px #e1e1e1;
+    -webkit-box-shadow: 0 0 10px #e1e1e1;
+    border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    border: 0px solid #000000;
+    float: left;
+}
+
+#offre-wrapper.type-1 .bloc-offre{
+    width: 940px;
+    height: 150px;
+}
+#offre-wrapper.type-2v .bloc-offre{
+    width: 450px;
+    height: 250px;
+}
+#offre-wrapper.type-2c.decal #blocs-offre{
+    margin: 35px 0 0 400px;
+}
+#offre-wrapper.type-2c.decal .bloc-offre{
+    width: 270px;
+}
+
+#offre-wrapper .bloc-offre .image-wrapper{
+    width: 200px;
+    height: 100px;
+    float:left;
+}
+#offre-wrapper.type-1 .bloc-offre .image-wrapper{
+    width: 300px;
+    height: 150px;
+    float:left;
+}
+#offre-wrapper.type-2v .bloc-offre .image-wrapper{
+    width: 200px;
+    height: 250px;
+    float:left;
+}
+#offre-wrapper .bloc-offre .image-wrapper img{
+    width: 200px;
+    height: 100px;
+}
+#offre-wrapper.type-1 .bloc-offre .image-wrapper img{
+    width: 300px;
+    height: 150px;
+}
+#offre-wrapper.type-2v .bloc-offre .image-wrapper img{
+    width: 200px;
+    height: 250px;
+}
+#offre-wrapper.type-2c.decal .bloc-offre .image-wrapper,
+#offre-wrapper.type-2c.decal .bloc-offre .image-wrapper img{
+    width: 100px;
+}
+#offre-wrapper .bloc-offre .contenu-wrapper{
+    width: 250px;
+    height: 100px;
+    float:left;
+    font-size : 12px;
+}
+#offre-wrapper.type-1 .bloc-offre .contenu-wrapper{
+    width: 640px;
+    height: 150px;
+    float:left;
+    font-size : 12px;
+}
+#offre-wrapper.type-2v .bloc-offre .contenu-wrapper{
+    width: 250px;
+    height: 250px;
+    float:left;
+    font-size : 12px;
+}
+#offre-wrapper.type-2c.decal .bloc-offre .contenu-wrapper{
+    width: 170px;
+}
+#offre-wrapper .bloc-offre .contenu-wrapper .contenu a{
+    text-decoration: none;
+    color: #000000;
+}
+#offre-wrapper .bloc-offre .contenu-wrapper .contenu a:hover{
+    text-decoration: underline;
+}
+#offre-wrapper .bloc-offre .contenu-wrapper .contenu{
+    height: 60px;
+    line-height: 65px;
+    overflow: hidden;
+    width: 230px;
+    padding: 3px 10px;
+}
+#offre-wrapper.type-1 .bloc-offre .contenu-wrapper .contenu{
+    height: 90px;
+    line-height: 95px;
+    overflow: hidden;
+    width: 620px;
+    padding: 3px 10px;
+}
+#offre-wrapper.type-2v .bloc-offre .contenu-wrapper .contenu{
+    height: 90px;
+    line-height: 95px;
+    overflow: hidden;
+    width: 230px;
+    padding: 3px 10px;
+}
+#offre-wrapper .bloc-offre .contenu-wrapper .contenu .texte *{
+    line-height: initial;
+}
+#offre-wrapper.type-2c.decal .bloc-offre .contenu-wrapper .contenu{
+    width: 150px;
+}
+#offre-wrapper .bloc-offre .contenu-wrapper.link1 .contenu{
+    height: 75px;
+    line-height: 80px;
+}
+#offre-wrapper.type-1 .bloc-offre .contenu-wrapper.link1 .contenu{
+    height: 115px;
+    line-height: 120px;
+}
+#offre-wrapper.type-2v .bloc-offre .contenu-wrapper.link1 .contenu{
+    height: 215px;
+    line-height: 220px;
+}
+#offre-wrapper .bloc-offre .contenu-wrapper.link0 .contenu{
+    height: 90px;
+    line-height: 95px;
+}
+#offre-wrapper.type-1 .bloc-offre .contenu-wrapper.link0 .contenu{
+    height: 140px;
+    line-height: 145px;
+}
+#offre-wrapper.type-2v .bloc-offre .contenu-wrapper.link0 .contenu{
+    height: 240px;
+    line-height: 245px;
+}
+#offre-wrapper.type-2v .bloc-offre .bloc-video iframe{
+    width: 450px;
+    height: 250px;
+}
+#offre-wrapper .bloc-offre .contenu-wrapper .contenu .texte{
+    vertical-align:middle;
+    width: 100%;
+    display:inline-block;
+    line-height:1.2;
+}
+#offre-wrapper .bloc-offre .contenu-wrapper .links{
+    margin: 2px 10px 0 0;
+    height: 30px;   
+    text-align: right;
+}
+#offre-wrapper.type-1 .bloc-offre .contenu-wrapper .links{
+    margin: 2px 10px 0 0;
+    height: 50px;
+    text-align: right;
+}
+#offre-wrapper.type-2v .bloc-offre .contenu-wrapper .links{
+    margin: 2px 10px 0 0;
+    height: 50px;
+    text-align: right;
+}
+#offre-wrapper .bloc-offre .contenu-wrapper.link1 .links{
+    height: 15px;
+}
+#offre-wrapper.type-1 .bloc-offre .contenu-wrapper.link1 .links{
+    height: 25px;
+}
+#offre-wrapper.type-2v .bloc-offre .contenu-wrapper.link1 .links{
+    height: 25px;
+}
+#offre-wrapper .bloc-offre .contenu-wrapper.link0 .links{
+    height: 0px;
+}
+#offre-wrapper .bloc-offre .contenu-wrapper .link{
+    height: 15px;
+    line-height: 15px;
+}
+#offre-wrapper.type-1 .bloc-offre .contenu-wrapper .link{
+    height: 25px;
+    line-height: 25px;
+}
+#offre-wrapper.type-2v .bloc-offre .contenu-wrapper .link{
+    height: 25px;
+    line-height: 25px;
+}
+#offre-wrapper .bloc-offre .contenu-wrapper .links a{
+    text-decoration: none;
+    text-transform: none;
+    font-size : 12px;
+    color: #000000;
+}
+#offre-wrapper .bloc-offre .contenu-wrapper .links a:hover{
+    text-decoration: underline;
+}
+#offre-wrapper.type-2c.nondecal .odd,
+#offre-wrapper.type-2v .odd{
+    margin-left: 40px;
+}
+#offre-wrapper.type-2c.decal .odd{
+    margin-left: 30px;
+}
+
+
+@media only screen and (max-width: 767px) {
+    #headerxxl, #darty_footer, table#site_footer, #tunnel_mobile_footer {  
+        display: none; 
+    }
+    #page-wrapper #page{
+        width: 100%;
+    }
+    #page #content {
+        background: #a6a5a1 !important; 
+        margin: 0;
+        padding: 0;
+    }
+    #page #content .tabs{ 
+        margin: 0;
+        padding: 0;
+    }
+    #offre-wrapper #blocs-offre{  
+        margin: 20px 10px 0 10px;
+    }
+    #page #offre-wrapper.type-2c #blocs-offre, 
+    #page #offre-wrapper.type-2v #blocs-offre{
+        margin: 20px 30px 0 30px;
+    }
+    #page #contenu-wrapper { 
+        width: 320px; 
+        position: relative;
+        margin: auto;
+    }
+    #page #offre-wrapper #banniere{
+        margin: 0;
+    }
+    div.spacing10 { 
+        display: none !important; 
+    }
+    #gigya-share-bar { 
+        display: none !important; 
+    }
+    #page #content #offre-wrapper{
+        width: 320px;
+        min-height: 0;
+    }
+    #page #content #offre-wrapper{
+        background-image: none;
+    }
+    #page #offre-wrapper #banniere{
+        width:320px;
+        height: auto;
+    }
+    #page #offre-wrapper #banniere img{
+        width:320px;
+        height: auto;
+    }
+    #page #offre-wrapper .bloc-offre{
+        width: 300px;
+        height: auto;
+    }
+    #page #offre-wrapper.type-2c .bloc-offre, 
+    #page #offre-wrapper.type-2v .bloc-offre{
+        width: 250px;
+        height: auto;
+    }
+    #page #offre-wrapper .bloc-offre .contenu-wrapper{
+        width: 300px;
+        height: auto;
+    }
+    #page #offre-wrapper.type-2c.decal .bloc-offre .contenu-wrapper{
+        width: 150px;
+        height: auto;
+    }
+    #page #offre-wrapper.type-2c.nondecal .bloc-offre .contenu-wrapper, 
+    #page #offre-wrapper.type-2v .bloc-offre .contenu-wrapper{
+        width: 250px;
+    }
+    #page #offre-wrapper .bloc-offre .contenu-wrapper .contenu{
+        width: 280px;
+        height: auto;
+    }
+    #page #offre-wrapper.type-2c.decal .bloc-offre .contenu-wrapper .contenu{
+        width: 130px;
+        height: auto;
+    }
+    #page #offre-wrapper.type-2c.nondecal .bloc-offre .contenu-wrapper .contenu,
+    #page #offre-wrapper.type-2v .bloc-offre .contenu-wrapper .contenu{
+        width: 230px;
+        height: auto;
+    }
+    #page #offre-wrapper.type-2c.nondecal .bloc-offre .image-wrapper, 
+    #page #offre-wrapper.type-2v .bloc-offre .image-wrapper{
+        text-align: center;
+        width: 100%;
+    }
+    #page #offre-wrapper.type-2v .bloc-offre .bloc-video iframe{
+        width: 250px;
+        height: 250px;
+    }
+    #page #offre-wrapper #blocs-offre .odd{
+        margin-left: 0;
+    }
+    #header_mobile { 
+        display: block; 
+        height: 129px; 
+    }
+    #header_mobile .header_mobile_logo { 
+        height: 129px; 
+    }
+}

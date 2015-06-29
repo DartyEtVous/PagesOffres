@@ -2,6 +2,10 @@
 /**
  * Generic elements.
  */
+body.cke_editable {
+  background: #ebebeb;
+}
+
 body {
   color: #000;
   background: #fff;

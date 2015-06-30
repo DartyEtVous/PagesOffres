@@ -121,9 +121,13 @@
 }
 #offre-wrapper .bloc-offre .contenu-wrapper .contenu a{
     text-decoration: none;
-    color: #000000;
 }
+/*
 #offre-wrapper .bloc-offre .contenu-wrapper .contenu a:hover{
+    text-decoration: underline;
+}
+*/
+#offre-wrapper .bloc-offre .contenu-wrapper .contenu span:hover{
     text-decoration: underline;
 }
 #offre-wrapper .bloc-offre .contenu-wrapper .contenu{

@@ -37,7 +37,14 @@ class BlocOffre {
 
         $link_image = $this->node->field_bloc_image_lien;
         if (isset($link_image[LANGUAGE_NONE][0]['url']) && !empty($link_image[LANGUAGE_NONE][0]['url'])) {
-            $this->urlImage = $link_image[LANGUAGE_NONE][0]['url'];
+            $urlImageTmp = $link_image[LANGUAGE_NONE][0]['url'];
+            if (isset($link_image[LANGUAGE_NONE][0]['query']) && !empty($link_image[LANGUAGE_NONE][0]['query'])) {
+              $urlImageTmp .= "?";
+              foreach ($link_image[LANGUAGE_NONE][0]['query'] as $query_key => $query_value) {
+                $urlImageTmp .= $query_key . "=" . $query_value;
+              }
+            }
+            $this->urlImage = $urlImageTmp;
             if (isset($link_image[LANGUAGE_NONE][0]['attributes']['target']) && !empty($link_image[LANGUAGE_NONE][0]['attributes']['target'])) {
                 $this->targetImage = $link_image[LANGUAGE_NONE][0]['attributes']['target'];
             }

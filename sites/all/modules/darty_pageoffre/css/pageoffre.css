@@ -127,7 +127,7 @@
     text-decoration: underline;
 }
 */
-#offre-wrapper .bloc-offre .contenu-wrapper .contenu span:hover{
+#offre-wrapper .bloc-offre .contenu-wrapper .contenu a span:hover{
     text-decoration: underline;
 }
 #offre-wrapper .bloc-offre .contenu-wrapper .contenu{
